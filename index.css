@@ -1,0 +1,92 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 900px;
+    width: 100%;
+    margin: 50px auto;
+}
+
+.card {
+    /* definimos que a largura do elemento é calc(100% / 3 - 20px). 
+    Pegamos 100% do valor e dividimos por 3, que é a quantidade de 
+    itens que queremos por linha, e desconsideramos o valor das margens 
+    aplicado na linha 22, onde temos 10px para a direita e 10px para a 
+    esquerda. */
+    width: calc(100% / 3 - 20px);   
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.card_img {
+    /*definimos um cálculo dinâmico para a altura da nossa imagem. Quando inserimos o valor 
+    ((100vw - (100vw - 900px)) / 3 - 20px) estamos informando a largura do nosso bloco, semelhante 
+    ao que fizemos na classe .card da linha 0. Porém, agora estamos utilizando o valor da área 
+    útil e no final dividimos o conteúdo por 2 a fim de termos uma proporção de 2/1 para nossa 
+    imagem.
+    
+    Em caso de dúvida, conferir no link: https://claude.ai/share/af09b221-d4aa-45a6-a933-0d70db116bc4
+    */
+    height: calc(((100vw - (100vw - 900px)) / 3 - 20px) / 2);
+    flex: 0 0 auto;
+    margin: 0 0 10px 0;
+}
+
+.card_img img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.card_descricao {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.card_link a {
+    color: #494949;
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 0;
+    transition: 0.1s ease;
+}
+
+@media (max-width: 768px){
+    .card {
+        width: calc(100%/2 - 20px);
+    }
+    .card_img {
+        height: calc((100vw /2 - 20px) /2);
+    }
+
+}
+@media (max-width: 425px){
+    .card {
+        width: calc(100% - 20px);
+    }
+    .card_img {
+        height: calc((100vw - 20px) /2);
+    }
+}
+@media (max-width: 320px){
+    .card {
+        width: calc(100%);
+        margin: 10px 0;
+        box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.2);
+        border: none;
+    }
+    .card_img {
+        height: calc(100vw /2);
+    }
+}
