@@ -63,6 +63,12 @@
     transition: 0.1s ease;
 }
 
+.card_link a:hover {
+    background-color: #494949;
+    color: #fff;
+    transition: 0.5s ease;
+}
+
 @media (max-width: 768px){
     .card {
         width: calc(100%/2 - 20px);
